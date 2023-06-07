@@ -10,13 +10,14 @@ Public Class Form1
         ModClient.IPAddress = TxtPLCIP.Text
         ModClient.Port = TxtPort.Text
         ModClient.Connect()
+        Timer1.Interval = 500
+        Timer1.Start()
 
         BtnStart.Visible = False
         BtnStop.Visible = True
-        If ModClient.Connected Then
-            TxtCon.Visible = True
-            TxtDisCon.Visible = False
-        End If
+
+
+
     End Sub
 
     Private Sub BtnStop_Click(sender As Object, e As EventArgs) Handles BtnStop.Click
@@ -30,15 +31,31 @@ Public Class Form1
     End Sub
 
     Private Sub TxtTrigger_TextChanged(sender As Object, e As EventArgs) Handles TxtTrigger.TextChanged
-        If ModClient.Connected Then
-            Dim Trigger
-            Dim Value1, Value2, Value3
-            Trigger = ModClient.ReadHoldingRegisters(TxtTrigger.Text, 1)
-            If Trigger Is "1" Then
-                Value1 = ModClient.ReadHoldingRegisters(TxtReg1.Text, 1)
-                TxtVal1.Text = Value1
 
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If ModClient.Connected Then
+            TxtCon.Visible = True
+            TxtDisCon.Visible = False
+            Dim Trigger As Integer()
+            Dim Value As Integer()
+
+            Trigger = ModClient.ReadHoldingRegisters(TxtTrigger.Text, 1)
+            If Trigger(0) = 1 Then
+                txtTrigVal.Text = Trigger(0)
+            Else
+                txtTrigVal.Text = 0
             End If
+            Value = ModClient.ReadHoldingRegisters(TxtReg1.Text, 1)
+            TxtVal1.Text = Value(0)
+            Value = ModClient.ReadHoldingRegisters(TxtReg2.Text, 1)
+            TxtVal2.Text = Value(0)
+            Value = ModClient.ReadHoldingRegisters(TxtReg3.Text, 1)
+            TxtVal3.Text = Value(0)
+        Else
+            BtnStop.Select()
+
         End If
     End Sub
 

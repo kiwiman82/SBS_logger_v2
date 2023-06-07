@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.ConnectionSetup = New System.Windows.Forms.GroupBox()
         Me.TxtModbusID = New System.Windows.Forms.TextBox()
@@ -58,6 +59,8 @@ Partial Class Form1
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TxtCon = New System.Windows.Forms.TextBox()
         Me.TxtDisCon = New System.Windows.Forms.TextBox()
+        Me.txtTrigVal = New System.Windows.Forms.TextBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ConnectionSetup.SuspendLayout()
         Me.Registers.SuspendLayout()
         Me.LoggingSetup.SuspendLayout()
@@ -272,6 +275,7 @@ Partial Class Form1
         '
         'LoggingSetup
         '
+        Me.LoggingSetup.Controls.Add(Me.txtTrigVal)
         Me.LoggingSetup.Controls.Add(Me.TxtTrigger)
         Me.LoggingSetup.Controls.Add(Me.TxtSaveLoc)
         Me.LoggingSetup.Controls.Add(Me.Label12)
@@ -288,7 +292,7 @@ Partial Class Form1
         '
         Me.TxtTrigger.Location = New System.Drawing.Point(180, 84)
         Me.TxtTrigger.Name = "TxtTrigger"
-        Me.TxtTrigger.Size = New System.Drawing.Size(372, 20)
+        Me.TxtTrigger.Size = New System.Drawing.Size(74, 20)
         Me.TxtTrigger.TabIndex = 12
         Me.TxtTrigger.Text = "100"
         '
@@ -400,6 +404,16 @@ Partial Class Form1
         Me.TxtDisCon.TabIndex = 7
         Me.TxtDisCon.Text = "Disconnected"
         '
+        'txtTrigVal
+        '
+        Me.txtTrigVal.Location = New System.Drawing.Point(280, 84)
+        Me.txtTrigVal.Name = "txtTrigVal"
+        Me.txtTrigVal.Size = New System.Drawing.Size(74, 20)
+        Me.txtTrigVal.TabIndex = 13
+        '
+        'Timer1
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -465,4 +479,6 @@ Partial Class Form1
     Friend WithEvents Label14 As Label
     Friend WithEvents TxtCon As TextBox
     Friend WithEvents TxtDisCon As TextBox
+    Friend WithEvents txtTrigVal As TextBox
+    Friend WithEvents Timer1 As Timer
 End Class
