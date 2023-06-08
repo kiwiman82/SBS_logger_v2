@@ -47,6 +47,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LoggingSetup = New System.Windows.Forms.GroupBox()
+        Me.txtTrigVal = New System.Windows.Forms.TextBox()
         Me.TxtTrigger = New System.Windows.Forms.TextBox()
         Me.TxtSaveLoc = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -59,7 +60,6 @@ Partial Class Form1
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TxtCon = New System.Windows.Forms.TextBox()
         Me.TxtDisCon = New System.Windows.Forms.TextBox()
-        Me.txtTrigVal = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ConnectionSetup.SuspendLayout()
         Me.Registers.SuspendLayout()
@@ -113,7 +113,7 @@ Partial Class Form1
         Me.TxtPLCIP.Name = "TxtPLCIP"
         Me.TxtPLCIP.Size = New System.Drawing.Size(143, 20)
         Me.TxtPLCIP.TabIndex = 2
-        Me.TxtPLCIP.Text = "192.168.11.59"
+        Me.TxtPLCIP.Text = "127.0.0.1"
         '
         'Label2
         '
@@ -288,13 +288,21 @@ Partial Class Form1
         Me.LoggingSetup.TabStop = False
         Me.LoggingSetup.Text = "Logging Setup"
         '
+        'txtTrigVal
+        '
+        Me.txtTrigVal.Location = New System.Drawing.Point(280, 84)
+        Me.txtTrigVal.Name = "txtTrigVal"
+        Me.txtTrigVal.Size = New System.Drawing.Size(74, 20)
+        Me.txtTrigVal.TabIndex = 13
+        '
         'TxtTrigger
         '
         Me.TxtTrigger.Location = New System.Drawing.Point(180, 84)
+        Me.TxtTrigger.MaxLength = 9999
         Me.TxtTrigger.Name = "TxtTrigger"
-        Me.TxtTrigger.Size = New System.Drawing.Size(74, 20)
+        Me.TxtTrigger.Size = New System.Drawing.Size(45, 20)
         Me.TxtTrigger.TabIndex = 12
-        Me.TxtTrigger.Text = "100"
+        Me.TxtTrigger.Text = "5"
         '
         'TxtSaveLoc
         '
@@ -306,11 +314,11 @@ Partial Class Form1
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(134, 87)
+        Me.Label12.Location = New System.Drawing.Point(62, 87)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(40, 13)
+        Me.Label12.Size = New System.Drawing.Size(112, 13)
         Me.Label12.TabIndex = 10
-        Me.Label12.Text = "Trigger"
+        Me.Label12.Text = "Trigger Register Value"
         '
         'Label11
         '
@@ -403,13 +411,6 @@ Partial Class Form1
         Me.TxtDisCon.Size = New System.Drawing.Size(113, 24)
         Me.TxtDisCon.TabIndex = 7
         Me.TxtDisCon.Text = "Disconnected"
-        '
-        'txtTrigVal
-        '
-        Me.txtTrigVal.Location = New System.Drawing.Point(280, 84)
-        Me.txtTrigVal.Name = "txtTrigVal"
-        Me.txtTrigVal.Size = New System.Drawing.Size(74, 20)
-        Me.txtTrigVal.TabIndex = 13
         '
         'Timer1
         '
